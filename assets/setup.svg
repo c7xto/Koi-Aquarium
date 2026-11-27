@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" width="760" height="310" role="img" aria-label="Setup in four steps">
+<style>
+text{font:14px ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}
+.l0{animation:k0 14s infinite}@keyframes k0{0%,3%{opacity:0}5%,95%{opacity:1}100%{opacity:0}}.l1{animation:k1 14s infinite}@keyframes k1{0%,12%{opacity:0}14%,95%{opacity:1}100%{opacity:0}}.l2{animation:k2 14s infinite}@keyframes k2{0%,21%{opacity:0}23%,95%{opacity:1}100%{opacity:0}}.l3{animation:k3 14s infinite}@keyframes k3{0%,30%{opacity:0}32%,95%{opacity:1}100%{opacity:0}}.l4{animation:k4 14s infinite}@keyframes k4{0%,39%{opacity:0}41%,95%{opacity:1}100%{opacity:0}}.l5{animation:k5 14s infinite}@keyframes k5{0%,48%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}.l6{animation:k6 14s infinite}@keyframes k6{0%,57%{opacity:0}59%,95%{opacity:1}100%{opacity:0}}.l7{animation:k7 14s infinite}@keyframes k7{0%,66%{opacity:0}68%,95%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<rect width="760" height="310" rx="12" fill="#0d1117"/>
+<circle cx="24" cy="24" r="6" fill="#ff5f57"/><circle cx="44" cy="24" r="6" fill="#febc2e"/><circle cx="64" cy="24" r="6" fill="#28c840"/>
+<text x="380" y="29" text-anchor="middle" fill="#6e7681">Koi Aquarium setup (example)</text>
+<line x1="0" y1="46" x2="760" y2="46" stroke="#21262d"/>
+<g class="l0"><circle cx="32" cy="75" r="11" fill="#1f6feb"/><text x="32" y="80" text-anchor="middle" fill="#fff">1</text></g>
+<text class="l0" x="56" y="80" fill="#e6edf3">Create a public repository named like your username</text>
+<text class="l1" x="56" y="104" fill="#8b949e">github.com/new  -&gt;  octocat/octocat  -&gt;  Add a README</text>
+<g class="l2"><circle cx="32" cy="133" r="11" fill="#1f6feb"/><text x="32" y="138" text-anchor="middle" fill="#fff">2</text></g>
+<text class="l2" x="56" y="138" fill="#e6edf3">Add the file .github/workflows/aquarium.yml</text>
+<text class="l3" x="56" y="162" fill="#8b949e">copy it from examples/aquarium.yml</text>
+<g class="l4"><circle cx="32" cy="191" r="11" fill="#1f6feb"/><text x="32" y="196" text-anchor="middle" fill="#fff">3</text></g>
+<text class="l4" x="56" y="196" fill="#e6edf3">Show the picture in your README.md</text>
+<text class="l5" x="56" y="220" fill="#8b949e">&lt;img src=&quot;aquarium.gif&quot; width=&quot;100%&quot;&gt;</text>
+<g class="l6"><circle cx="32" cy="249" r="11" fill="#1f6feb"/><text x="32" y="254" text-anchor="middle" fill="#fff">4</text></g>
+<text class="l6" x="56" y="254" fill="#e6edf3">Actions tab  -&gt;  Aquarium  -&gt;  Run workflow</text>
+<text class="l7" x="56" y="278" fill="#3fb950">Done. Your koi now redraws every night.</text>
+</svg>

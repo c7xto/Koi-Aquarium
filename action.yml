@@ -1,0 +1,85 @@
+name: Koi Aquarium
+description: A pixel-art koi aquarium for your profile README that grows with your GitHub activity.
+author: c7xto
+branding:
+  icon: droplet
+  color: blue
+
+inputs:
+  login:
+    description: "GitHub user whose activity is drawn"
+    default: ${{ github.repository_owner }}
+  theme:
+    description: "japanese, planted, night, sunset, reef or dark"
+    default: "japanese"
+  dark-theme:
+    description: "Also draw this theme for dark-mode visitors (aquarium-dark.gif)"
+    default: ""
+  size:
+    description: "wide, banner or square"
+    default: "wide"
+  colors:
+    description: "kohaku, orange, gold, black, blue, platinum, sakura, languages, or #rrggbb,#rrggbb,#rrggbb"
+    default: ""
+  name:
+    description: "Name tag for your koi, up to 16 letters or numbers"
+    default: ""
+  hide:
+    description: "Any of decor, rocks, plants, flowers, bubbles"
+    default: ""
+  milestones:
+    description: "Contributions at which another koi joins"
+    default: "500,2000"
+  max-fish:
+    description: "Most koi in the tank, 1 to 5"
+    default: "3"
+  creatures:
+    description: "none, auto, all, or any of snail, shrimp, turtle, jellyfish"
+    default: "none"
+  evolution:
+    description: "true: fry, young, adult, elder, dragon"
+    default: "false"
+  streak-rewards:
+    description: "true: sparkles, golden fins and a glow for streaks"
+    default: "false"
+  sign:
+    description: "true: a sign with your total and streak"
+    default: "false"
+  speed:
+    description: "Milliseconds per frame, 40 to 400. 0 follows your activity"
+    default: "0"
+  output:
+    description: "Where to write the GIF, relative to your repository"
+    default: "aquarium.gif"
+  token:
+    description: "Reads the contribution calendar. Keep the built-in token"
+    default: ${{ github.token }}
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v6
+      with:
+        python-version: "3.13"
+    - run: python -m pip install --quiet pillow==12.3.0
+      shell: bash
+    - run: |
+        python "$GITHUB_ACTION_PATH/aquarium.py" --login="$KOI_LOGIN" --out="$KOI_OUTPUT" --theme="$KOI_THEME" --dark-theme="$KOI_DARK_THEME" --size="$KOI_SIZE" --colors="$KOI_COLORS" --name="$KOI_NAME" --hide="$KOI_HIDE" --milestones="$KOI_MILESTONES" --max-fish="$KOI_MAX_FISH" --creatures="$KOI_CREATURES" --evolution="$KOI_EVOLUTION" --streak-rewards="$KOI_STREAK_REWARDS" --sign="$KOI_SIGN" --speed="$KOI_SPEED"
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        KOI_LOGIN: ${{ inputs.login }}
+        KOI_OUTPUT: ${{ inputs.output }}
+        KOI_THEME: ${{ inputs.theme }}
+        KOI_DARK_THEME: ${{ inputs.dark-theme }}
+        KOI_SIZE: ${{ inputs.size }}
+        KOI_COLORS: ${{ inputs.colors }}
+        KOI_NAME: ${{ inputs.name }}
+        KOI_HIDE: ${{ inputs.hide }}
+        KOI_MILESTONES: ${{ inputs.milestones }}
+        KOI_MAX_FISH: ${{ inputs.max-fish }}
+        KOI_CREATURES: ${{ inputs.creatures }}
+        KOI_EVOLUTION: ${{ inputs.evolution }}
+        KOI_STREAK_REWARDS: ${{ inputs.streak-rewards }}
+        KOI_SIGN: ${{ inputs.sign }}
+        KOI_SPEED: ${{ inputs.speed }}

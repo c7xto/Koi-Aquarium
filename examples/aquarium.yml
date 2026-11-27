@@ -1,0 +1,37 @@
+# Copy to .github/workflows/aquarium.yml in your profile repository (username/username).
+name: Aquarium
+
+on:
+  schedule:
+    - cron: "20 0 * * *" # just after midnight UTC
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/aquarium.yml]
+
+permissions:
+  contents: write
+
+concurrency: aquarium
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: c7xto/Koi-Aquarium@v1
+        with:
+          theme: japanese # japanese, planted, night, sunset, reef, dark
+          # name: Mochi
+          # colors: gold
+          # creatures: auto
+          # evolution: true
+          # streak-rewards: true
+          # sign: true
+      - name: Commit if the picture changed
+        run: |
+          git add -- *.gif
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet --message "aquarium: redraw"
+          git push --quiet
